@@ -1,0 +1,68 @@
+
+.contenedor {
+  width: 92%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.grid_layout {
+  display: grid;
+  grid-template-columns: 1.5fr 4fr 2fr;
+  gap: 40px;
+}
+
+/* Media query para pantallas más pequeñas, por ejemplo, dispositivos móviles */
+@media screen and (max-width: 480px) {
+  .grid_layout {
+    grid-template-columns: 1fr; /* Cambia la disposición a una sola columna */
+  }
+}
+
+
+
+$themes: (
+  light: (
+    textColor: #000,
+    bg: #f7f7f7,
+    bgContainer: white ,
+    bgSoft: #f7f7f7,
+    textColorSoft: #000,
+  ),
+  dark: (
+    textColor: whitesmoke,
+    bg: #152033,
+    bgContainer: #212f48,
+    border: "none",
+    bgSoft: #2b3b58,
+    textColorSoft: lightgray,
+  ),
+);
+
+@mixin themify($themes) {
+  @each $theme, $map in $themes {
+    .theme-#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), "#{$key}");
+        $theme-map: map-merge(
+          $theme-map,
+          (
+            $key: $value,
+          )
+        ) !global;
+      }
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+@function themed($key) {
+  @return map-get($theme-map, $key);
+}
+
+@mixin mobile{
+  @media(max-width: 480px){
+    @content
+  }
+}

@@ -1,0 +1,68 @@
+@import "../../styles.scss";
+
+.leftbar {
+  @include themify($themes) {
+    padding: 20px;
+    height: calc(100vh - 170px);
+    background-color: themed("bgContainer");
+    color: themed("textColor");
+    border-radius: 20px;
+    position: sticky; //No se
+    overflow: scroll;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Offset en X, Offset en Y, Blur, Color */
+    display: flex;
+    flex-direction: column;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @include mobile {
+      display: none;
+    }
+
+    hr {
+      width: 100%;
+      color: #8d8d8d;
+    }
+
+    .profile {
+      display: flex;
+      gap: 10px;
+
+      img {
+        width: 50px;
+        height: 50px;
+        border-radius: 10000px;
+        object-fit: cover;
+      }
+    }
+
+    span {
+      margin: 0;
+      font-size: 12px;
+    }
+
+    .section_leftbar {
+      padding-top: 10px;
+      padding-bottom: 10px;
+
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .element_leftbar {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        p {
+          margin: 0;
+        }
+      }
+      .element_leftbar:hover {
+        color: #0085ff;
+        cursor: pointer;
+      }
+    }
+  }
+}

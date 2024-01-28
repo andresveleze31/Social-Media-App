@@ -1,0 +1,15 @@
+@import "./styles.scss";
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f7f7f7;
+  margin: 0;
+}
+
+.mode{
+    height: 100vh;
+   @include themify($themes) {
+    background-color: themed("bg");
+   } 
+}
+

@@ -1,0 +1,10 @@
+.home{
+        height: calc(100vh - 130px);
+    position: sticky; //No se
+    top: 70px;
+    overflow-y: scroll;
+    
+    &::-webkit-scrollbar {
+      display: none;
+    }
+}

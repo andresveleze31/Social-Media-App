@@ -1,0 +1,128 @@
+@import "../../styles.scss";
+
+.rightbar {
+  @include themify($themes) {
+    height: calc(100vh - 170px);
+    position: sticky; //No se
+    top: 70px;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: themed("textColor");
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @include mobile {
+            display: none;
+          }
+
+    span {
+      margin: 0;
+      color: #8d8d8d;
+    }
+
+    .rightbar_section {
+      background-color: themed("bgContainer");
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Offset en X, Offset en Y, Blur, Color */
+
+      p {
+        margin: 0;
+      }
+      span {
+        font-size: 14px;
+      }
+      .sugestion_section {
+        display: flex;
+        justify-content: space-between;
+        gap: 7px;
+        align-items: center;
+        margin-top: 15px;
+        margin-bottom: 15px;
+
+        .sugestion_person {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          position: relative;
+
+          .online {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: limegreen;
+            position: absolute;
+            top: 0;
+          }
+        }
+        .sugestion_actions {
+          display: flex;
+          gap: 10px;
+        }
+        img {
+          width: 50px;
+          height: 50px;
+          border-radius: 10000px;
+        }
+      }
+    }
+
+    .profile {
+      display: flex;
+      gap: 10px;
+
+      img {
+        width: 50px;
+        height: 100%;
+        border-radius: 10000px;
+      }
+    }
+
+    .section_leftbar {
+      padding-top: 10px;
+      padding-bottom: 10px;
+
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .element_leftbar {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        p {
+          margin: 0;
+        }
+      }
+      .element_leftbar:hover {
+        color: #0085ff;
+        cursor: pointer;
+      }
+    }
+
+    .boton_main {
+      font-family: "Poppins", sans-serif;
+      background-color: #0085ff;
+      border: none;
+      padding: 5px 15px;
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .boton_secondary {
+      font-family: "Poppins", sans-serif;
+      border: 1px solid #0085ff;
+      padding: 5px 15px;
+      border-radius: 10px;
+      background-color: themed("bgContainer");
+      color: themed("textColor");
+      cursor: pointer;
+    }
+  }
+}

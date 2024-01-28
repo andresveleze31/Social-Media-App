@@ -1,0 +1,79 @@
+.login {
+  height: 100vh;
+  background-color: #c4dafa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .card {
+    width: 50%;
+    background-color: white;
+    display: flex;
+    border-radius: 10px;
+    min-height: 600px;
+
+    .left {
+      background: linear-gradient(rgba(11, 20, 96, 0.5), rgba(11, 41, 96, 0.5)),
+        url("https://images.pexels.com/photos/2923156/pexels-photo-2923156.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
+          center;
+      flex: 1;
+      padding: 50px;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      color: white;
+
+      h1 {
+        font-size: 60px;
+      }
+      p {
+      }
+      span {
+        font-size: 14px;
+      }
+      button {
+        background-color: white;
+        border: none;
+        padding: 10px;
+        font-family: "Poppins", sans-serif;
+        font-weight: bold;
+        cursor: pointer;
+      }
+    }
+
+    .right {
+      flex: 1;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 50px;
+      h2 {
+        font-size: 40px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        input {
+          border: none;
+          border-bottom: 1px solid lightgray;
+          display: block;
+          padding: 20px 10px;
+        }
+        button {
+          cursor: pointer;
+          background-color: #5a9fe0;
+          border: none;
+          font-family: "Poppins", sans-serif;
+          font-weight: bold;
+          color: white;
+          font-size: 15px;
+          padding: 10px;
+        }
+      }
+    }
+  }
+}
