@@ -18,35 +18,38 @@ import Profile from "./pages/profile/Profile";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext.jsx";
 import { AuthContext } from "./context/authContext.jsx";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 function App() {
-
-  const {currentUser} = useContext(AuthContext);
+  const { currentUser } = useContext(AuthContext);
   console.log(currentUser);
 
-  const {darkMode} = useContext(DarkModeContext);
+  const { darkMode } = useContext(DarkModeContext);
+  const queryClient = new QueryClient();
 
   const Layout = () => {
     return (
-      <div className={`theme-${darkMode ? "dark" : "light"}`}>
-        <main className="mode">
-          <Navbar />
-          <div className="grid_layout contenedor">
-            <Leftbar />
-            <Outlet />
-            <Rightbar />
-          </div>
-        </main>
-      </div>
+      <QueryClientProvider client={queryClient}>
+        <div className={`theme-${darkMode ? "dark" : "light"}`}>
+          <main className="mode">
+            <Navbar />
+            <div className="grid_layout contenedor">
+              <Leftbar />
+              <Outlet />
+              <Rightbar />
+            </div>
+          </main>
+        </div>
+      </QueryClientProvider>
     );
   };
 
-  const ProtectedRoute = ({children}) => {
-    if(!currentUser){
-      return <Navigate to={"/login"} />
+  const ProtectedRoute = ({ children }) => {
+    if (!currentUser) {
+      return <Navigate to={"/login"} />;
     }
     return children;
-  }
+  };
 
   const router = createBrowserRouter([
     {
